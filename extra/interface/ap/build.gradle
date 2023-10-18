@@ -16,7 +16,7 @@ dependencies {
 // there is no javadoc
 tasks.withType(Javadoc).configureEach { enabled = false }
 
-tasks.withType(Test).configureEach {
+tasks.withType(Test).matching { it.name != "testJava8" }.configureEach {
     // See: https://github.com/google/compile-testing/issues/222
     jvmArgs '--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED'
     jvmArgs '--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED'
